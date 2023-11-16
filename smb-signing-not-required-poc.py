@@ -8,10 +8,10 @@ import uuid
 def check_smb_signing(ip_address, port=445):
     try:
         # Establish a socket connection
-        connection = Connection(uuid.uuid4(), '172.16.16.172', 445)
+        connection = Connection(uuid.uuid4(), 'ip_address', 445)
         connection.connect(Dialects.SMB_3_1_1)
         # Create a session
-        session = Session(connection, username='Shakthivel', password='iAmShakthi')
+        session = Session(connection, username='UserNameToBePlaced', password='PasswordGoesHere')
         session.connect()
         # Check the signing requirements
         signing_required = session.signing_required
@@ -19,4 +19,4 @@ def check_smb_signing(ip_address, port=445):
     except Exception:
         print(traceback.format_exc())
 
-check_smb_signing('10.200.10.9')
+check_smb_signing('ip_address')
